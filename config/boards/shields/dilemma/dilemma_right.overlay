@@ -7,7 +7,15 @@
 #include "dilemma.dtsi"
 
 &default_transform {
-	col-offset = <5>;
+//	col-offset = <5>;
+//};
+#address-cells = <1>;
+#size-cells = <0>;
+
+/* Adjust this value as needed to align your rows */
+row-offset = <12>;
+
+col-offset = <5>;
 };
 
 &kscan0 {
