@@ -10,7 +10,7 @@
 //	col-offset = <5>;
 //};
 
-};
+//};
 
 &kscan0 {
 	col-gpios
