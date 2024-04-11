@@ -7,7 +7,7 @@
 #include "dilemma.dtsi"
 
 //&default_transform {
-	col-offset = <4>;
+//	col-offset = <4>;
 //};
 
 &kscan0 {
