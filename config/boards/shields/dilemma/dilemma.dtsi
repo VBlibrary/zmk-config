@@ -45,7 +45,7 @@
         gpio-scl = <&nice_nano_v2 3 GPIO_ACTIVE_HIGH>; // GPIO pin for SCL for Trackpad0
     };
 
-    trackpad1: trackpad {
+    trackpad1: trackpad1 {
         compatible = "cirque,trackpad";
         label = "Trackpad1";
         status = "okay";
