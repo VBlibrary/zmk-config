@@ -34,7 +34,7 @@
     };
 
     trackpad0: trackpad {
-        compatible = "manufacturer,trackpad";
+        compatible = "cirque,trackpad";
         label = "Trackpad0";
         status = "okay";
 
@@ -46,7 +46,7 @@
     };
 
     trackpad1: trackpad {
-        compatible = "manufacturer,trackpad";
+        compatible = "cirque,trackpad";
         label = "Trackpad1";
         status = "okay";
 
