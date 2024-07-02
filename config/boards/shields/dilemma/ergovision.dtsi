@@ -1,52 +1,31 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
-&nice_nano_v2 {
-    aliases {
-        i2c0 = &i2c1;
-        i2c1 = &i2c2;
-    };
+&uart0 {
+    status = "okay";
+};
 
-    chosen {
-        zephyr,console = &uart0;
-        zephyr,shell-uart = &uart0;
-        zephyr,bt-uart = &uart1;
-    };
+&uart1 {
+    status = "okay";
+};
 
-    soc {
-        i2c1: i2c@40004000 {
-            compatible = "nordic,nrf-twim";
-            reg = <0x40004000 0x1000>;
-            interrupts = <8>;
-            status = "okay";
-            clock-frequency = <I2C_BITRATE_FAST>;
-            sda-pin = <5>;
-            scl-pin = <6>;
-        };
+&i2c1 {
+    status = "okay";
+    sda-pin = <5>;
+    scl-pin = <6>;
+    clock-frequency = <I2C_BITRATE_FAST>;
+};
 
-        i2c2: i2c@40005000 {
-            compatible = "nordic,nrf-twim";
-            reg = <0x40005000 0x1000>;
-            interrupts = <8>;
-            status = "okay";
-            clock-frequency = <I2C_BITRATE_FAST>;
-            sda-pin = <7>;
-            scl-pin = <8>;
-        };
-
-        gpio0: gpio@50000000 {
-            compatible = "nordic,nrf-gpio";
-            gpio-controller;
-            #gpio-cells = <2>;
-            reg = <0x50000000 0x300>;
-            status = "okay";
-        };
-    };
+&gpio0 {
+    status = "okay";
 };
 
 / {
     chosen {
         zmk,kscan = &kscan0;
         zmk,matrix_transform = &default_transform;
+        zephyr,console = &uart0;
+        zephyr,shell-uart = &uart0;
+        zephyr,bt-uart = &uart1;
     };
 
     default_transform: keymap_transform_0 {
@@ -85,17 +64,5 @@
         i2c-address = <0x12>;  // Correct I2C address for Trackpad0
         gpio-sda = <&gpio0 5 GPIO_ACTIVE_HIGH>; // GPIO pin for SDA for Trackpad0
         gpio-scl = <&gpio0 6 GPIO_ACTIVE_HIGH>; // GPIO pin for SCL for Trackpad0
-    };
-
-    trackpad1: trackpad1 {
-        compatible = "cirque,trackpad";
-        label = "Trackpad1";
-        status = "okay";
-
-        /* Specify the I2C bus and address for the trackpad */
-        i2c-bus = <&i2c2>;  // Correct I2C bus for Trackpad1
-        i2c-address = <0x13>;  // Correct I2C address for Trackpad1
-        gpio-sda = <&gpio0 7 GPIO_ACTIVE_HIGH>; // GPIO pin for SDA for Trackpad1
-        gpio-scl = <&gpio0 8 GPIO_ACTIVE_HIGH>; // GPIO pin for SCL for Trackpad1
     };
 };
