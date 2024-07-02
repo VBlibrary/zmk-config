@@ -16,7 +16,6 @@
     pinctrl-0 = <&i2c1_pins>;
 };
 
-...
 
 pinctrl {
     i2c1_pins: i2c1_pins {
