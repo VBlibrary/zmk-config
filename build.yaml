@@ -14,9 +14,9 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: dilemma_left
+    shield: ergovison_left
   - board: nice_nano_v2
-    shield: dilemma_right
+    shield: ergovision_right
   - board: nice_nano_v2
     shield: settings_reset
 
