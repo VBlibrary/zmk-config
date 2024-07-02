@@ -3,3 +3,5 @@
 
 
 rsource "cirque_trackpad/Kconfig"
+rsource "kscan/Kconfig"
+rsource "sensor/Kconfig"
