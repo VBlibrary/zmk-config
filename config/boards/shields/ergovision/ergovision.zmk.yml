@@ -1,6 +1,6 @@
 file_format: "1"
-id: ErgoVisonV1
-name: Ergovision
+id: ErgoVison
+name: ErgoVision
 type: shield
 url: https://github.com/VBlibrary/zmk-config
 requires: [nice_nano_v2]
