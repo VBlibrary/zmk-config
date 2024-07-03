@@ -30,7 +30,7 @@
                     <&gpio0 20 GPIO_ACTIVE_HIGH>;
     };
 
-    trackpad0: trackpad0 {
+   /* trackpad0: trackpad0 {
         compatible = "cirque,trackpad";
         label = "Trackpad0";
         status = "okay";
@@ -52,5 +52,5 @@
         i2c-address = <0x13>;  // Correct I2C address for Trackpad1
         gpio-sda = <&gpio0 5 GPIO_ACTIVE_HIGH>; // GPIO pin for SDA for Trackpad1
         gpio-scl = <&gpio0 6 GPIO_ACTIVE_HIGH>; // GPIO pin for SCL for Trackpad1
-    };
+    };*/
 };
