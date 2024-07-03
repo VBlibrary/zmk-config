@@ -28,6 +28,11 @@
                     <&gpio0 18 GPIO_ACTIVE_HIGH>,
                     <&gpio0 19 GPIO_ACTIVE_HIGH>,
                     <&gpio0 20 GPIO_ACTIVE_HIGH>;
+        col-gpios = <&gpio0 5 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 6 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 7 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 8 GPIO_ACTIVE_HIGH>,
+                    <&gpio0 9 GPIO_ACTIVE_HIGH>;
     };
 
     trackpad0: trackpad0 {
