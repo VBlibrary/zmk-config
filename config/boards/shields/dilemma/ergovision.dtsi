@@ -36,9 +36,21 @@
         status = "okay";
 
         /* Specify the I2C bus and address for the trackpad */
-        i2c-bus = <&i2c1>;  // Correct I2C bus for Trackpad0
+        i2c-bus = <&i2c0>;  // Correct I2C bus for Trackpad0
         i2c-address = <0x12>;  // Correct I2C address for Trackpad0
         gpio-sda = <&gpio0 5 GPIO_ACTIVE_HIGH>; // GPIO pin for SDA for Trackpad0
         gpio-scl = <&gpio0 6 GPIO_ACTIVE_HIGH>; // GPIO pin for SCL for Trackpad0
+    };
+
+    trackpad1: trackpad1 {
+        compatible = "cirque,trackpad";
+        label = "Trackpad1";
+        status = "okay";
+
+        /* Specify the I2C bus and address for the trackpad */
+        i2c-bus = <&i2c0>;  // Correct I2C bus for Trackpad1
+        i2c-address = <0x13>;  // Correct I2C address for Trackpad1
+        gpio-sda = <&gpio0 5 GPIO_ACTIVE_HIGH>; // GPIO pin for SDA for Trackpad1
+        gpio-scl = <&gpio0 6 GPIO_ACTIVE_HIGH>; // GPIO pin for SCL for Trackpad1
     };
 };
