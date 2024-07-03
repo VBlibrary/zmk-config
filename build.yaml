@@ -20,8 +20,3 @@ include:
   - board: nice_nano_v2
     shield: settings_reset
 
-- name: Clean build directory
-      run: |
-        if [ -d build ]; then
-          rm -rf build
-        fi
