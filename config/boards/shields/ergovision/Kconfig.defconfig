@@ -5,14 +5,14 @@
 if SHIELD_ERGOVISION_LEFT
 
 config ZMK_KEYBOARD_NAME
-	default "ErgoVision"
+	default "ergovision_left"
 
 endif
 
 if SHIELD_ERGOVISION_RIGHT
 
 config ZMK_KEYBOARD_NAME
-	default "ergovision_right"
+	default "ErgoVision"
 
 config ZMK_SPLIT_BLE_ROLE_CENTRAL
 	default y
