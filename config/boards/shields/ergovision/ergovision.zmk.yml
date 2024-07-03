@@ -1,0 +1,11 @@
+file_format: "1"
+id: ErgoVisonV1
+name: Ergovision
+type: shield
+url: https://github.com/
+requires: [nice_nano_v2]
+features:
+  - keys
+siblings:
+  - ergovision_left
+  - ergovision_right
