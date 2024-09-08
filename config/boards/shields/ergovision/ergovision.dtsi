@@ -45,10 +45,16 @@
 };
 
 &pwm0 {
-    status = "okay";
+    status = "disabled";
+    pinctrl-0 = <&pwm0_default>;
+    pinctrl-names = "default";
 };
 
-
+pwm0_default: pwm0_default {
+    group1 {
+        psels = <27>;  // Pin 27 for PWM output
+    };
+};
 
 &i2c0 {
         status = "disabled";  // Disable I2C by default
