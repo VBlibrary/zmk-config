@@ -50,9 +50,9 @@
 
 &led_strip {
     compatible = "sk6812";
-    pin = <&pro_micro 
+    pin = <&gpio0 27 GPIO_OUTPUT_ACTIVE>;
     chain-length = <27>;
-    label = "SK6812_Mini_E";
+    label = "SK6812_Mini_E_Left";
 };
 
 
@@ -83,3 +83,5 @@
         scale-multiplier = <2>;
     };
 };
+
+
