@@ -44,13 +44,14 @@
                                     RC(4,2) RC(4,1) RC(4,0)
         >;
     };
+};
 
-  &led_strip {
+&led_strip {
     compatible = "sk6812";
     pin = <&gpio0 27 GPIO_OUTPUT_ACTIVE>;
     chain-length = <27>;
     label = "SK6812_Mini_E_Left";
-  };
+};
 
 / {
     keymap {
