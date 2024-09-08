@@ -46,13 +46,6 @@
     };
 };
 
-&led_strip ws2812@0 {
-    compatible = "sk6812";
-    pin = <&gpio0 27 GPIO_OUTPUT_ACTIVE>;
-    chain-length = <27>;
-    label = "SK6812_Mini_E_Left";
-};
-
 / {
     keymap {
         compatible = "zmk,keymap";
