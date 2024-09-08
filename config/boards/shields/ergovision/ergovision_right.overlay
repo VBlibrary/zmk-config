@@ -1,9 +1,9 @@
 #include "ergovision.dtsi"
 #include <dt-bindings/zmk/matrix_transform.h>
-
-&default_transform {
+/{
+ &default_transform {
     col-offset = <6>;
-};
+ };
 
     &i2c0 {
         status = "okay";
@@ -39,8 +39,7 @@
         //x-invert;
         scale-multiplier = <2>;
     };
-
-
+};
 
 &i2c0 {
     status = "okay";

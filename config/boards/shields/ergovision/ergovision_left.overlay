@@ -2,8 +2,8 @@
 
 #include <dt-bindings/zmk/matrix_transform.h>
 
-
-    &i2c0 {
+/{
+     &i2c0 {
         status = "okay";
 
         glidepoint0: glidepoint@2a {
@@ -37,7 +37,7 @@
         //x-invert;
         scale-multiplier = <2>;
     };
-
+};
 / {
     /* define virtual input, will be resurrected for emitting input event */
 	/* NOTE: set `device = <&glidepoint1>` in `zmk,input-listener` */
