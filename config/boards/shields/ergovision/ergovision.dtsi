@@ -45,23 +45,23 @@
 };
 
 &i2c0 {
-        status = "disabled";  // Disable I2C by default
+    status = "disabled";
+    glidepoint0: glidepoint@2a {
+        compatible = "cirque,pinnacle";
+        reg = <0x2a>;
+        status = "disabled";
+        dr-gpios = <&pro_micro 1 (GPIO_ACTIVE_HIGH)>;
 
-        glidepoint0: glidepoint@2a {
-            compatible = "cirque,pinnacle";
-            reg = <0x2a>;
-            status = "disabled";  // Disable Glidepoint by default
-            dr-gpios = <&pro_micro 10 (GPIO_ACTIVE_HIGH)>;
-
-            sensitivity = "2x";
-            sleep;
-            no-taps;
-        };
+        sensitivity = "2x";
+        sleep;
+        //no-taps;
     };
+};
 
-    / {
-    /* Assign `input-listener` to all pointing devices */
-    /* &glidepoint0 on central, &glidepoint1 on peripheral */
+
+/ {
+	/* assign `input-listener` to all pointing devices */
+	/* &glidepoint0 on central, &glidepoint1 on peripheral */
     tpad_central_listener {
         compatible = "zmk,input-listener";
         device = <&glidepoint0>;
@@ -69,7 +69,15 @@
         y-invert;
         //x-invert;
         scale-multiplier = <2>;
+	};
+
+    tpad_peripheral_listener {
+        compatible = "zmk,input-listener";
+        device = <&glidepoint1>;
+        //xy-swap;
+        y-invert;
+        //x-invert;
+        scale-multiplier = <2>;
     };
 };
-
 
