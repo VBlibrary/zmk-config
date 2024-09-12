@@ -1,1 +1,4 @@
 set (SHIELD ErgoVision)
+ zephyr_library_sources_ifdef(CONFIG_ZMK_INPUT_BEHAVIOR_LISTENER src/input_behavior_listener.c)
+  zephyr_library_sources_ifdef(CONFIG_ZMK_INPUT_BEHAVIOR_SCALER src/input_behavior_scaler.c)
+  zephyr_library_sources_ifdef(CONFIG_ZMK_INPUT_BEHAVIOR_TOG_LAYER src/input_behavior_tog_layer.c)
