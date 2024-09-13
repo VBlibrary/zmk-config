@@ -45,39 +45,88 @@
 };
 
 &i2c0 {
-    status = "disabled";
-    glidepoint0: glidepoint@2a {
-        compatible = "cirque,pinnacle";
+    status = "okay";
+
+    trackpad0: cirque@2a {
+        compatible = "cirque,trackpad";
         reg = <0x2a>;
-        status = "disabled";
-        dr-gpios = <&pro_micro 10 (GPIO_ACTIVE_HIGH)>;
+        /* Additional properties specific to trackpad0 if needed */
+    };
 
-        sensitivity = "2x";
-        sleep;
-        //no-taps;
+    trackpad1: cirque@2b {
+        compatible = "cirque,trackpad";
+        reg = <0x2b>;
+        /* Additional properties specific to trackpad1 if needed */
     };
 };
 
+&input_listeners {
+    /* Input behavior listener for trackpad0 */
+    trackpad0_listener {
+        compatible = "zmk,input-behavior-listener";
+        device = <&trackpad0>;
+        layers = <DEF MSK>;
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
+        scale-multiplier = <1>;
+        scale-divisor = <1>;
+        bindings = <&ib_tog_layer MSK>;
+        rotate-deg = <315>;
+    };
 
-/ {
-	/* assign `input-listener` to all pointing devices */
-	/* &glidepoint0 on central, &glidepoint1 on peripheral */
-    tpad_central_listener {
-        compatible = "zmk,input-listener";
-        device = <&glidepoint0>;
-        //xy-swap;
-        y-invert;
-        //x-invert;
-        scale-multiplier = <2>;
-	};
+    /* Input behavior listener for trackpad1 */
+    trackpad1_listener {
+        compatible = "zmk,input-behavior-listener";
+        device = <&trackpad1>;
+        layers = <DEF MSK>;
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
+        scale-multiplier = <1>;
+        scale-divisor = <1>;
+        bindings = <&ib_tog_layer MSK>;
+        rotate-deg = <315>;
+    };
 
-    tpad_peripheral_listener {
-        compatible = "zmk,input-listener";
-        device = <&glidepoint1>;
-        //xy-swap;
+    /* Input behavior listener for mouse scroll mode */
+    trackpad_scroll_listener {
+        compatible = "zmk,input-behavior-listener";
+        device = <&trackpad0>;  /* Use the appropriate trackpad device */
+        layers = <MSC>;
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_MISC>;
+        y-input-code = <INPUT_REL_WHEEL>;
         y-invert;
-        //x-invert;
-        scale-multiplier = <2>;
+        rotate-deg = <315>;
+        bindings = <&ib_wheel_scaler 1 8>;
     };
 };
 
+/* Define input behavior toggles and scalers */
+ib_tog_layer: ib_tog_layer {
+    compatible = "zmk,input-behavior-tog-layer";
+    #binding-cells = <1>;
+    time-to-live-ms = <1000>;
+};
+
+ib_wheel_scaler: ib_wheel_scaler {
+    compatible = "zmk,input-behavior-scaler";
+    #binding-cells = <2>;
+    evt-type = <INPUT_EV_REL>;
+    input-code = <INPUT_REL_WHEEL>;
+};
+
+/* Keymap definition */
+keymap {
+    compatible = "zmk,keymap";
+    DEF_layer {
+        bindings = <&mo MSK ... ...>;
+    };
+    MSK_layer {
+        bindings = <..... &trackpad0_listener &trackpad1_listener MSC>;
+    };
+    MSC_layer {
+        bindings = <..... &trackpad0_listener &trackpad1_listener ...>;
+    };
+};
