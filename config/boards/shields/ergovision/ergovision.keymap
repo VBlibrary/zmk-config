@@ -35,7 +35,7 @@
 
 
 / {
-        /* input config for mouse move mode on default layer (DEF & MSK) */
+    /* input config for mouse move mode on default layer (DEF & MSK) */
         tb0_mmv_ibl {
                 /* new forked compatible name */
                 compatible = "zmk,input-behavior-listener";
@@ -105,6 +105,8 @@
                 #binding-cells = <2>;
                 evt-type = <INPUT_EV_REL>;
                 input-code = <INPUT_REL_WHEEL>;
-        };
+        }
+}:
+
 
        
