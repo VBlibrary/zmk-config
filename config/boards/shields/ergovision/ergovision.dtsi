@@ -60,48 +60,39 @@
     };
 };
 
-/{&input_listeners:
-    /* Input behavior listener for trackpad0 */
-    trackpad0_listener {
-        compatible = "zmk,input-behavior-listener";
-        device = <&trackpad0>;
-        layers = <DEF MSK>;
-        evt-type = <INPUT_EV_REL>;
-        x-input-code = <INPUT_REL_X>;
-        y-input-code = <INPUT_REL_Y>;
-        scale-multiplier = <1>;
-        scale-divisor = <1>;
-        bindings = <&ib_tog_layer MSK>;
-        rotate-deg = <315>;
-    };
+&i2c0 {
+    status = "disabled";
+    glidepoint0: glidepoint@2a {
+        compatible = "cirque,pinnacle";
+        reg = <0x2a>;
+        status = "disabled";
+        dr-gpios = <&pro_micro 1 (GPIO_ACTIVE_HIGH)>;
 
-    /* Input behavior listener for trackpad1 */
-    trackpad1_listener {
-        compatible = "zmk,input-behavior-listener";
-        device = <&trackpad1>;
-        layers = <DEF MSK>;
-        evt-type = <INPUT_EV_REL>;
-        x-input-code = <INPUT_REL_X>;
-        y-input-code = <INPUT_REL_Y>;
-        scale-multiplier = <1>;
-        scale-divisor = <1>;
-        bindings = <&ib_tog_layer MSK>;
-        rotate-deg = <315>;
-    };
-
-    /* Input behavior listener for mouse scroll mode */
-    trackpad_scroll_listener {
-        compatible = "zmk,input-behavior-listener";
-        device = <&trackpad0>;  /* Use the appropriate trackpad device */
-        layers = <MSC>;
-        evt-type = <INPUT_EV_REL>;
-        x-input-code = <INPUT_REL_MISC>;
-        y-input-code = <INPUT_REL_WHEEL>;
-        y-invert;
-        rotate-deg = <315>;
-        bindings = <&ib_wheel_scaler 1 8>;
+        sensitivity = "1x";
+        sleep;
+        //no-taps;
     };
 };
 
 
+/ {
+	/* assign `input-listener` to all pointing devices */
+	/* &glidepoint0 on central, &glidepoint1 on peripheral */
+    tpad_central_listener {
+        compatible = "zmk,input-listener";
+        device = <&glidepoint0>;
+        xy-swap;
+        y-invert;
+        x-invert;
+        scale-multiplier = <2>;
+	};
 
+    tpad_peripheral_listener {
+        compatible = "zmk,input-listener";
+        device = <&glidepoint1>;
+        xy-swap;
+        y-invert;
+        x-invert;
+        scale-multiplier = <2>;
+    };
+};

@@ -3,7 +3,7 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 &i2c0 {
     status = "okay";
-    glidepoint0: glidepoint@2a {
+    glidepoint1: glidepoint@2a {
         status = "okay";
     };
 };
