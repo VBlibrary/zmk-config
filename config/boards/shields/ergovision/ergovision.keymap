@@ -16,6 +16,7 @@
 #define DEF 0;
 #define UPE 1;
 #define MSC 2;
+
 / {
     keymap {
         compatible = "zmk,keymap";
@@ -29,5 +30,19 @@
                                                    &kp TAB    &kp BSPC   &kp SPACE                &kp SPACE   &kp ENTER &kp LEFT_WIN
             >;
         };
+    };
+};
+ layers = <DEF MSK>;
+
+keymap {
+    compatible = "zmk,keymap";
+    DEF_layer {
+        bindings = <&mo MSK DEF MSC>;
+    };
+    MSK_layer {
+        bindings = <..... &trackpad0_listener &trackpad1_listener MSC>;
+    };
+    MSC_layer {
+        bindings = <..... &trackpad0_listener &trackpad1_listener ...>;
     };
 };

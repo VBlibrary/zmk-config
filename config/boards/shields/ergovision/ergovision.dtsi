@@ -60,7 +60,7 @@
     };
 };
 
-&input_listeners {
+/&input_listeners {
     /* Input behavior listener for trackpad0 */
     trackpad0_listener {
         compatible = "zmk,input-behavior-listener";
@@ -103,30 +103,5 @@
     };
 };
 
-/* Define input behavior toggles and scalers */
-ib_tog_layer: ib_tog_layer {
-    compatible = "zmk,input-behavior-tog-layer";
-    #binding-cells = <1>;
-    time-to-live-ms = <1000>;
-};
 
-ib_wheel_scaler: ib_wheel_scaler {
-    compatible = "zmk,input-behavior-scaler";
-    #binding-cells = <2>;
-    evt-type = <INPUT_EV_REL>;
-    input-code = <INPUT_REL_WHEEL>;
-};
 
-/* Keymap definition */
-keymap {
-    compatible = "zmk,keymap";
-    DEF_layer {
-        bindings = <&mo MSK ... ...>;
-    };
-    MSK_layer {
-        bindings = <..... &trackpad0_listener &trackpad1_listener MSC>;
-    };
-    MSC_layer {
-        bindings = <..... &trackpad0_listener &trackpad1_listener ...>;
-    };
-};
