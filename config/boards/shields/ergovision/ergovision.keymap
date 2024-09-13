@@ -32,7 +32,7 @@
         };
     };
 };
- layers = <DEF MSK>;
+
 
 keymap {
     compatible = "zmk,keymap";
