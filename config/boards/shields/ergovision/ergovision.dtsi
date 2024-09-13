@@ -60,7 +60,7 @@
     };
 };
 
-/&input_listeners {
+/{&input_listeners:
     /* Input behavior listener for trackpad0 */
     trackpad0_listener {
         compatible = "zmk,input-behavior-listener";
