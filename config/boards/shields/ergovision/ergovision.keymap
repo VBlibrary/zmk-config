@@ -14,7 +14,7 @@
 //#define ZMK_MOUSE_DEFAULT_SCRL_VAL 20    // 10
 
 #define DEF 0;
-#define UPE 1;
+#define MSK 1;
 #define MSC 2;
 
 / {
@@ -44,7 +44,7 @@
                 device = <&glidepoint0>;
 
                 /* only enable in default layer (DEF) & mouse key layer (MSK) */
-                layers = <DEF>;
+                layers = <DEF MSK>;
 
                 /* event code value to override raw input event */
                 /* designed for switching to mouse scroll, xy-swap, precise-mode+, etc */
@@ -68,7 +68,7 @@
         /* input config for mouse scroll mode on momentary mouse scoll layer (MSC) */
    tb0_msl_ibl {
                 compatible = "zmk,input-behavior-listener";
-                device = <&glidepoint1;
+                device = <&glidepoint0;
                 layers = <MSC>;
                 evt-type = <INPUT_EV_REL>;
                 
