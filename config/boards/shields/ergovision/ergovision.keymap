@@ -36,12 +36,12 @@
 
 / {
     /* input config for mouse move mode on default layer (DEF & MSK) */
-        tb0_mmv_ibl {
+ tb0_mmv_ibl {
                 /* new forked compatible name */
                 compatible = "zmk,input-behavior-listener";
                 
                 /* the input point device alias */
-                device = <&pd0>;
+                device = <&glidepoint0>;
 
                 /* only enable in default layer (DEF) & mouse key layer (MSK) */
                 layers = <DEF MSK>;
@@ -62,13 +62,13 @@
                 rotate-deg = <315>;
                 /* NOTE 1: This settings do not compitable with y-invert and x-invert */
                 /* NOTE 2: Floating point computation requires alot of ram. */
-                /*         This feature will cuase stackover flow with CONFIG_ZMK_USB_LOGGING=y */
-        };
+               /*         This feature will cuase stackover flow with CONFIG_ZMK_USB_LOGGING=y */
+     };
   
         /* input config for mouse scroll mode on momentary mouse scoll layer (MSC) */
-        tb0_msl_ibl {
+   tb0_msl_ibl {
                 compatible = "zmk,input-behavior-listener";
-                device = <&pd0>;
+                device = <&glidepoint1;
                 layers = <MSC>;
                 evt-type = <INPUT_EV_REL>;
                 
@@ -90,14 +90,14 @@
                 /*       The delta value is accumlated until result >= 1 after cast. */
                 /*       The scrolling will be smoother and allow precise scrolling */
                 bindings = <&ib_wheel_scaler 1 8>;
-        };
+         };
 
         /* adjust cooldown waiting period for mouse key layer (MSK) after activated */
         ib_tog_layer: ib_tog_layer {
                 compatible = "zmk,input-behavior-tog-layer";
                 #binding-cells = <1>;
                 time-to-live-ms = <1000>;
-        };
+         };
 
         /* define a resolution down scaler only for INPUT_REL_WHEEL */
         ib_wheel_scaler: ib_wheel_scaler {
@@ -105,8 +105,9 @@
                 #binding-cells = <2>;
                 evt-type = <INPUT_EV_REL>;
                 input-code = <INPUT_REL_WHEEL>;
-        };
-};
-
+         };
+         
+         
+ }; 
 
        
