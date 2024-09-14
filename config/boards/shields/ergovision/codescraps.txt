@@ -309,3 +309,19 @@ input listener read me code adapted to glidepoint
  }; 
 
        
+
+       &i2c0 {
+    status = "okay";
+
+    trackpad0: cirque@2a {
+        compatible = "cirque,trackpad";
+        reg = <0x2a>;
+        /* Additional properties specific to trackpad0 if needed */
+    };
+
+    trackpad1: cirque@2b {
+        compatible = "cirque,trackpad";
+        reg = <0x2b>;
+        /* Additional properties specific to trackpad1 if needed */
+    };
+};
