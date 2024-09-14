@@ -80,7 +80,7 @@
     tpad_central_listener {
         compatible = "zmk,input-behavior-listener";
         device = <&glidepoint0>;
-        layers = <DEF>;  /* Layers where the trackpad should be active */
+        layers = <0>;  /* Layers where the trackpad should be active */
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
