@@ -13,8 +13,6 @@ manifest:
       remote: badjeff
       revision: feat/pointers-move-scroll
       import: app/west.yml
-    
-    
     - name: zmk-analog-input-driver
       remote: badjeff
       revision: main
@@ -36,7 +34,6 @@ manifest:
     - name: zmk-split-peripheral-bonding-tweak
       remote: badjeff
       revision: main
-    - 
     - name: cirque-input-module
       remote: badjeff
       revision: main
