@@ -24,4 +24,9 @@ if SHIELD_ERGOVISION_LEFT || SHIELD_ERGOVISION_RIGHT
 config ZMK_SPLIT
 	default y
 	
+config ZMK_USB
+	default y
+
+config I2C 
+	default y
 endif
