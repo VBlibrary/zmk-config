@@ -76,33 +76,23 @@
 
 
 / {
-    /* Input behavior listener for central Glidepoint trackpad */
+	/* assign `input-listener` to all pointing devices */
+	/* &glidepoint0 on central, &glidepoint1 on peripheral */
     tpad_central_listener {
-        compatible = "zmk,input-behavior-listener";
+        compatible = "zmk,input-listener";
         device = <&glidepoint0>;
-        layers = <0>;  /* Layers where the trackpad should be active */
-        evt-type = <INPUT_EV_REL>;
-        x-input-code = <INPUT_REL_X>;
-        y-input-code = <INPUT_REL_Y>;
-        scale-multiplier = <3>;  /* Adjust as needed for sensitivity */
-        /* Optional configurations */
-        // xy-swap;
-        // x-invert;
-        // y-invert;
-    };
+        xy-swap;
+        y-invert;
+        x-invert;
+        scale-multiplier = <2>;
+	};
 
-    /* Input behavior listener for peripheral Glidepoint trackpad (if applicable) */
     tpad_peripheral_listener {
-        compatible = "zmk,input-behavior-listener";
-        device = <&glidepoint1>;  /* Define if you have a second trackpad */
-        layers = <DEF MSK>;  /* Layers where the trackpad should be active */
-        evt-type = <INPUT_EV_REL>;
-        x-input-code = <INPUT_REL_X>;
-        y-input-code = <INPUT_REL_Y>;
-        scale-multiplier = <3>;  /* Adjust as needed for sensitivity */
-        /* Optional configurations */
-        // xy-swap;
-        // x-invert;
-        // y-invert;
+        compatible = "zmk,input-listener";
+        device = <&glidepoint1>;
+        xy-swap;
+        y-invert;
+        x-invert;
+        scale-multiplier = <2>;
     };
 };
