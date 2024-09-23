@@ -37,7 +37,7 @@
     /* Input behavior for mouse movement mode */
     tb0_mmv_ibl {
         compatible = "zmk,input-behavior-listener";
-        device = <&glidepoint1>;   // Left side trackpad
+        device = <&glidepoint0>;   // Left side trackpad
         layers = <DEF MSK>;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
@@ -51,7 +51,7 @@
     /* Input behavior for mouse movement on the right side */
     tb1_mmv_ibl {
         compatible = "zmk,input-behavior-listener";
-        device = <&glidepoint0>;  // Right side trackpad
+        device = <&glidepoint1>;  // Right side trackpad
         layers = <DEF MSK>;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
