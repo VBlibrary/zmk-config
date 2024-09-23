@@ -1,5 +1,5 @@
 #include "ergovision.dtsi"
-
+#include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <dt-bindings/zmk/matrix_transform.h>
 &i2c0 {
     status = "okay";
