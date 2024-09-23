@@ -33,7 +33,6 @@
     };
 };
 
-
 / {
     /* Input behavior for mouse movement mode */
     tb0_mmv_ibl {
@@ -45,7 +44,7 @@
         y-input-code = <INPUT_REL_Y>;
         scale-multiplier = <1>;
         scale-divisor = <1>;
-        bindings = <&ib_tog_layer MSK>;
+        bindings = <&ib_tog_layer 1>;
         rotate-deg = <0>;
     };
 
@@ -59,7 +58,7 @@
         y-input-code = <INPUT_REL_Y>;
         scale-multiplier = <1>;
         scale-divisor = <1>;
-        bindings = <&ib_tog_layer MSK>;
+        bindings = <&ib_tog_layer 1>;
         rotate-deg = <0>;
     };
 
