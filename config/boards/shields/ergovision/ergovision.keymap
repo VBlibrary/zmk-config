@@ -33,3 +33,39 @@
 };
 
 
+/ {
+    /* Input behavior for mouse movement mode */
+    tb0_mmv_ibl {
+        compatible = "zmk,input-behavior-listener";
+        device = <&glidepoint1>;   // Left side trackpad
+        layers = <DEF MSK>;
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
+        scale-multiplier = <1>;
+        scale-divisor = <1>;
+        bindings = <&ib_tog_layer MSK>;
+        rotate-deg = <0>;
+    };
+
+    /* Input behavior for mouse movement on the right side */
+    tb1_mmv_ibl {
+        compatible = "zmk,input-behavior-listener";
+        device = <&glidepoint0>;  // Right side trackpad
+        layers = <DEF MSK>;
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
+        scale-multiplier = <1>;
+        scale-divisor = <1>;
+        bindings = <&ib_tog_layer MSK>;
+        rotate-deg = <0>;
+    };
+
+    /* Adjust cooldown waiting period for mouse key layer (MSK) */
+    ib_tog_layer: ib_tog_layer {
+        compatible = "zmk,input-behavior-tog-layer";
+        #binding-cells = <1>;
+        time-to-live-ms = <1000>;
+    };
+};
