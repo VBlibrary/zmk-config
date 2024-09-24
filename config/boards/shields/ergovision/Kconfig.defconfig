@@ -1,32 +1,67 @@
 # Copyright (c) 2022 ZMK Contributors
 # SPDX-License-Identifier: MIT
- 
- 
+
 if SHIELD_ERGOVISION_LEFT
 
 config ZMK_KEYBOARD_NAME
-	default "ergovision_left"
+    default "ergovision_left"
 
 endif
 
 if SHIELD_ERGOVISION_RIGHT
 
 config ZMK_KEYBOARD_NAME
-	default "ErgoVision"
+    default "ErgoVision"
 
 config ZMK_SPLIT_BLE_ROLE_CENTRAL
-	default y
-	
+    default y
+
 endif
 
 if SHIELD_ERGOVISION_LEFT || SHIELD_ERGOVISION_RIGHT
 
+# Enable split keyboard functionality
 config ZMK_SPLIT
-	default y
-	
-config ZMK_USB
-	default y
+    default y
 
+# Enable USB functionality
+config ZMK_USB
+    default y
+
+# Enable I2C communication
 config I2C 
-	default y
+    default y
+
+# Enable USB HID support
+config ZMK_USB_HID
+    default y
+
+# Enable USB device stack (needed for USB communication)
+config USB_DEVICE_STACK
+    default y
+
+# Enable USB HID subsystem
+config USB_HID
+    default y
+
+# Enable HID reports (necessary for keyboard input)
+config ZMK_HID_REPORTS
+    default y
+
+# Enable serial communication (if using UART for console or logging)
+config SERIAL
+    default y
+
+# Enable UART console (optional, only if needed for logging/debugging)
+config UART_CONSOLE
+    default y
+
+# Enable the driver for serial communication
+config SERIAL_HAS_DRIVER
+    default y
+
+# Optional: Disable USB logging if not needed
+config ZMK_USB_LOGGING
+    default n
+
 endif
