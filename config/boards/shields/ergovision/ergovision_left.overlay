@@ -20,7 +20,7 @@
 		
 		/* channel id, used to filter incoming input event from split peripheral */
 		/* NOTE: should matching relay-channel on peripheral overlay */
-		/*relay-channel = <102>;
+		relay-channel = <102>;
 
 		/* virtual input device on central, which used to emit input event as an agent device */
 		device = <&glidepoint0>;
