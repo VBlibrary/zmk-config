@@ -30,11 +30,11 @@
             >;
         };
         nav {
-            bindings = <
-                &kp F1      &kp F2     &kp F3     &kp F4     &kp F5     &kp F6                    &kp F7     &kp F8     &kp F9     &kp F10    &kp F11    &kp F12
+            bindings = < 
+                &kp F1     &kp F2       &kp F3     &kp F4     &kp F5    &kp F6                    &kp F7     &kp F8     &kp F9     &kp F10    &kp F11    &kp F12
                 &bt BT_CLR &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &kp T              &kp Y      &kp U      &kp UP     &kp O      &kp P      &kp RALT
-                &kp LSHIFT   &kp trans  &kp trans  &kp trans &kp trans  &kp trans                 &kp H      &kp LEFT   &kp DOWN   &kp RIGHT  &kp SEMI   &kp RSHIFT
-                &kp LCTRL    &kp trans  &kp trans  &kp trans &kp trans  &kp trans                 &kp K_MUTE &kp M      &kp COMMA  &kp DOT    &kp SLASH  &kp RCTRL
+                &kp LSHIFT &kp A        &kp S      &kp D     &kp F      &kp G                     &kp H      &kp LEFT   &kp DOWN   &kp RIGHT  &kp SEMI   &kp RSHIFT
+                &kp LCTRL  &kp Z        &kp X      &kp C     &kp V      &kp B                     &kp K_MUTE &kp M      &kp COMMA  &kp DOT    &kp SLASH  &kp RCTRL
                                                    &kp TAB   &kp BSPC   &kp SPACE                 &kp SPACE  &kp ENTER &tog 1
             >;
         };
