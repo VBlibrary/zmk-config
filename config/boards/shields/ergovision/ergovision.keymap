@@ -15,31 +15,39 @@
 
 #define DEF 0;
 #define NAV 1;
-
+#define SEC 2;
 / {
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             bindings = <
-                &kp ESC      &kp N1     &kp N2     &kp N3     &kp N4     &kp N5                   &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &bt BT_CLR
-                &kp CAPSLOCK &kp Q      &kp W      &kp E      &kp R      &kp T                    &kp Y      &kp U      &kp I      &kp O      &kp P      &kp RALT
-                &kp LSHIFT   &kp A      &kp S      &kp D      &kp F      &kp G                    &kp H      &kp J      &kp K      &kp L      &kp SEMI   &kp RSHIFT
-                &kp LCTRL    &kp Z      &kp X      &kp C      &kp V      &kp B                    &kp N      &kp M      &kp COMMA  &kp DOT    &kp SLASH  &kp RCTRL
-                                                   &kp TAB    &kp BSPC   &kp SPACE                &kp SPACE   &kp ENTER &tog 1
+                &kp ESC      &kp N1     &kp N2     &kp N3     &kp N4     &kp N5              &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &mo 1
+                &kp CAPSLOCK &kp Q      &kp W      &kp E      &kp R      &kp T               &kp Y      &kp U      &kp I      &kp O      &kp P      &kp RALT
+                &kp LSHIFT   &kp A      &kp S      &kp D      &kp F      &kp G               &kp H      &kp J      &kp K      &kp L      &kp SEMI   &kp RSHIFT
+                &kp LCTRL    &kp Z      &kp X      &kp C      &kp V      &kp B               &kp N      &kp M      &kp COMMA  &kp DOT    &kp SLASH  &kp RCTRL
+                                                   &kp TAB    &kp BSPC   &kp SPACE           &kp SPACE  &kp ENTER  &tog 2
             >;
         };
         nav {
             bindings = < 
-                &kp F1     &kp F2  &kp F3     &kp F4    &kp F5      &kp F6                     &kp F7     &kp F8     &kp F9     &kp F10    &kp F11    &kp F12
-                &bt BT_CLR &kp Q   &kp W      &kp E     &kp R       &kp T                      &kp Y      &kp U      &kp UP     &kp O      &kp P      &kp RALT
-                &kp LSHIFT &kp A   &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &kp G              &kp H      &kp LEFT   &kp DOWN   &kp RIGHT  &kp SEMI   &kp RSHIFT
-                &kp LCTRL  &kp Z   &kp X      &kp C     &kp V      &kp B                     &kp K_MUTE &kp M      &kp COMMA  &kp DOT    &kp SLASH  &kp RCTRL
-                                              &kp TAB   &kp BSPC   &kp SPACE                 &kp SPACE  &kp ENTER  &tog 1
+                &kp F1     &kp F2  &kp F3  &kp F4    &kp F5      &kp F6                      &kp F7     &kp F8     &kp F9     &kp F10    &kp F11    &kp F12
+                &bt BT_CLR &kp Q   &kp W   &kp E     &kp R       &kp T                       &kp Y      &kp U      &kp UP     &kp O      &kp P      &kp RALT
+                &kp LSHIFT &kp A   &kp S   &bt BT_SEL 2 &bt BT_SEL 1 &kp G                   &kp H      &kp LEFT   &kp DOWN   &kp RIGHT  &kp SEMI   &kp RSHIFT
+                &kp LCTRL  &kp Z   &kp X   &kp C     &kp V      &kp B                        &kp K_MUTE &kp M      &kp COMMA  &kp DOT    &kp SLASH  &kp RCTRL
+                                           &kp TAB   &kp BSPC   &kp SPACE                    &kp SPACE  &kp ENTER  &mo 1
             >;
         };
-    
+         SEC {
+            bindings = <
+                &kp ESC      &kp N1     &kp N2     &kp N3     &kp N4     &kp N5              &kp N6     &kp N7     &kp N8     &kp N9     &kp N0     &kp K_MUTE
+                &kp CAPSLOCK &kp Q      &kp W      &kp E      &kp R      &kp T               &kp Y      &kp U      &kp UP     &kp O      &kp P      &kp RALT
+                &kp LSHIFT   &kp A      &kp S      &kp D      &kp F      &kp G               &kp H      &kp LEFT   &kp DOWN   &kp RIGHT  &kp SEMI   &kp RSHIFT
+                &kp LCTRL    &kp Z      &kp X      &kp C      &kp V      &kp B               &kp N      &kp M      &kp COMMA  &kp DOT    &kp SLASH  &kp RCTRL
+                                                   &kp TAB    &kp BSPC   &kp SPACE           &kp SPACE  &kp ENTER  &tog 2 
+            >;
     };
 
 
+  };
 };
