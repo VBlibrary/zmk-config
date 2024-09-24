@@ -1,0 +1,137 @@
+Keymap part
+
+/ {
+    /* Input behavior for mouse movement mode */
+    tb0_mmv_ibl {
+        compatible = "zmk,input-behavior-listener";
+        device = <&glidepoint0>;   // Left side trackpad
+        layers = <0 2>;
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
+        scale-multiplier = <1>;
+        scale-divisor = <1>;
+        bindings = <&ib_tog_layer 1>;
+        rotate-deg = <0>;
+    };
+
+    /* Input behavior for mouse movement on the right side */
+    tb1_mmv_ibl {
+        compatible = "zmk,input-behavior-listener";
+        device = <&glidepoint1>;  // Right side trackpad
+        layers = <0 2>;
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
+        scale-multiplier = <1>;
+        scale-divisor = <1>;
+        bindings = <&ib_tog_layer 1>;
+        rotate-deg = <0>;
+    };
+
+    /* Adjust cooldown waiting period for mouse key layer (MSK) */
+    ib_tog_layer: ib_tog_layer {
+        compatible = "zmk,input-behavior-tog-layer";
+        #binding-cells = <1>;
+        time-to-live-ms = <1000>;
+    };
+};
+
+.dtsi
+
+&i2c0 {
+    status = "disabled";
+    glidepoint0: glidepoint@2a {
+        compatible = "cirque,pinnacle";
+        reg = <0x2a>;
+        status = "disabled";
+        dr-gpios = <&pro_micro 10 (GPIO_ACTIVE_HIGH)>;
+
+        sensitivity = "1x";
+        sleep;
+        //no-taps;
+    };
+};
+
+
+/ {
+	/* assign `input-listener` to all pointing devices */
+	/* &glidepoint0 on central, &glidepoint1 on peripheral */
+    tpad_central_listener {
+        compatible = "zmk,input-listener";
+        device = <&glidepoint0>;
+        xy-swap;
+        y-invert;
+        x-invert;
+        scale-multiplier = <2>;
+	};
+
+    tpad_peripheral_listener {
+        compatible = "zmk,input-listener";
+        device = <&glidepoint1>;
+        xy-swap;
+        y-invert;
+        x-invert;
+        scale-multiplier = <2>;
+    };
+};
+
+Right overlay
+
+&i2c0 {
+    status = "okay";
+    glidepoint0: glidepoint@2a {
+        status = "okay";
+    };
+};
+
+
+
+/ {
+    /* THIS only makes keymap binding happy, nothing happens on peripheral side */
+	glidepoint1: virtual_input {
+		compatible = "zmk,virtual-input";
+	};
+
+    input_relay_config_102 {
+        compatible = "zmk,split-peripheral-input-relay";
+
+        /* peripheral side input device, used to... */
+		/*  - be intecepted on peripheral; */
+		/*  - and then, be resurrected as `zmk,virtual-device` on central; */
+        device = <&glidepoint1>;
+
+        /* channel id, used to be be transfered along with all input events. */
+		/* NOTE 1: pick any 8bit integer. (1 - 255) */
+		/* NOTE 2: should matching relay-channel on central overlay */
+		relay-channel = <102>;
+    };
+};
+
+Left overlay
+
+&i2c0 {
+    status = "okay";
+    glidepoint0: glidepoint@2a {
+        status = "okay";
+    };
+};
+/ {
+    /* define virtual input, will be resurrected for emitting input event */
+	/* NOTE: set `device = <&glidepoint1>` in `zmk,input-listener` */
+	glidepoint1: virtual_input {
+		compatible = "zmk,virtual-input";
+	};
+
+	/* for central side, define (relay-channel)-to-(virtual-input) mapping */
+	input_relay_config_102 {
+		compatible = "zmk,split-peripheral-input-relay";
+		
+		/* channel id, used to filter incoming input event from split peripheral */
+		/* NOTE: should matching relay-channel on peripheral overlay */
+		relay-channel = <102>;
+
+		/* virtual input device on central, which used to emit input event as an agent device */
+		device = <&glidepoint0>;
+	};
+};

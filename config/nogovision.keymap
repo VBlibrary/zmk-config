@@ -163,3 +163,37 @@ ergovision keymap
         };
     };
 };
+
+
+# Copyright (c) 2022 ZMK Contributors
+# SPDX-License-Identifier: MIT
+ 
+ 
+if SHIELD_ERGOVISION_LEFT
+
+config ZMK_KEYBOARD_NAME
+	default "ergovision_left"
+
+endif
+
+if SHIELD_ERGOVISION_RIGHT
+
+config ZMK_KEYBOARD_NAME
+	default "ErgoVision"
+
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+	default y
+	
+endif
+
+if SHIELD_ERGOVISION_LEFT || SHIELD_ERGOVISION_RIGHT
+
+config ZMK_SPLIT
+	default y
+	
+config ZMK_USB
+	default y
+
+config I2C 
+	default y
+endif
