@@ -35,7 +35,7 @@
                 &bt BT_CLR &kp Q   &kp W   &kp E     &kp R       &kp T                       &kp Y      &kp U      &kp UP     &kp O      &kp P      &kp RALT
                 &kp LSHIFT &kp A   &kp S   &bt BT_SEL 2 &bt BT_SEL 1 &kp G                   &kp H      &kp LEFT   &kp DOWN   &kp RIGHT  &kp SEMI   &kp RSHIFT
                 &kp LCTRL  &kp Z   &kp X   &kp C     &kp V      &kp B                        &kp K_MUTE &kp M      &kp COMMA  &kp DOT    &kp SLASH  &kp RCTRL
-                                           &kp TAB   &kp BSPC   &kp SPACE                    &kp SPACE  &kp ENTER  &mo 1
+                                           &bootloader   &kp BSPC   &kp SPACE                    &kp SPACE  &kp ENTER  &bootloader
             >;
         };
         sec {
