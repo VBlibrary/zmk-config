@@ -1,8 +1,7 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/zmk/input_transform.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <nice_nano-pinctrl.dtsi>
-
+#include "nice_nano-pinctrl"
 / {
     chosen {
         zmk,kscan = &default_kscan;
