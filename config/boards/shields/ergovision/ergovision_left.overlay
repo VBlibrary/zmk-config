@@ -9,7 +9,7 @@
         sda-pin = <2>;   // Specify the SDA pin for I2C1
         scl-pin = <3>;   // Specify the SCL pin for I2C1
 
-        glidepoint_split: glidepoint@0 {
+        glidepoint: glidepoint@0 {
             compatible = "cirque,pinnacle";
             reg = <0>;
             status = "okay";
@@ -20,7 +20,8 @@
     };
 
     &glidepoint_split {
-        device = <glidepoint_split>; // Assign the left-hand GlidePoint trackpad to split
+        device = <&glidepoint_split>; // Assign the left-hand GlidePoint trackpad to split
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
     };
 
     &glidepoint_listener {
