@@ -5,9 +5,6 @@
 #include <input/processors.dtsi>
 &pro_micro_i2c {
     status = "okay"; // Enable I2C1 for the Nice Nano V2
-    sda-pin = <2>;   // Specify the SDA pin for I2C1
-    scl-pin = <3>;   // Specify the SCL pin for I2C1
-
      glidepoint: glidepoint@0 {
          compatible = "cirque,pinnacle";
          reg = <0>;
