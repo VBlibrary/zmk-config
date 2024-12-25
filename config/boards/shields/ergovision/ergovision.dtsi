@@ -48,41 +48,7 @@
     };
  };
 
-&pinctrl {
-    /* configuration for i2c0 device, default state */
-    i2c0_default: i2c0_default {
-        group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 7)>,
-                <NRF_PSEL(TWIM_SCL, 0, 27)>;
-        };
-    };
-
-    i2c0_sleep: i2c0_sleep {
-        group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 7)>,
-                <NRF_PSEL(TWIM_SCL, 0, 27)>;
-            low-power-enable;
-        };
-    };
-};
-    &i2c0 {
-        status = "okay";
-        sda-pin = <2>;  // Pin connected to SDA
-        scl-pin = <3>;  // Pin connected to SCL
-
-        left_glidepoint: glidepoint@0 {
-            compatible = "cirque,pinnacle";
-            reg = <1>;  // I2C address for the left trackpad
-            status = "okay";
-        };
-
-        right_glidepoint: glidepoint@1 {
-            compatible = "cirque,pinnacle";
-            reg = <2>;  // I2C address for the right trackpad
-            status = "okay";
-        };
-    };
-
+   
     /{
         split_inputs {
         #address-cells = <1>;
