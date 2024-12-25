@@ -1,7 +1,35 @@
 #include "ergovision.dtsi"
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
-&default_transform {
-    col-offset = <6>;
- };
 
+/ {
+    &default_transform {
+        col-offset = <6>; // Offset for the right-hand side columns
+    };
+
+    &i2c1 {
+        status = "okay"; // Enable I2C1 for the Nice Nano V2
+        sda-pin = <2>;   // Specify the SDA pin for I2C1
+        scl-pin = <3>;   // Specify the SCL pin for I2C1
+
+        glidepoint: glidepoint@0 {
+            compatible = "cirque,pinnacle";
+            reg = <0>;
+            status = "okay";
+            sensitivity = "4x"; // Set sensitivity
+            no-taps;            // Disable tap gestures
+            sleep;              // Enable sleep mode for power saving
+        };
+    };
+
+    &glidepoint_split {
+        device = <&glidepoint>; // Assign the right-hand GlidePoint trackpad to split
+    };
+
+    &mmv { // Motion processing for trackpad
+        x-input-code = <INPUT_REL_X>; // X-axis movement
+        y-input-code = <INPUT_REL_Y>; // Y-axis movement
+        time-to-max-speed-ms = <300>; // Time to reach max speed
+        acceleration-exponent = <1>;  // Acceleration curve
+    };
+};

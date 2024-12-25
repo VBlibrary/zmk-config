@@ -1,44 +1,17 @@
 manifest:
-  remotes:
-    - name: zmkfirmware
-      url-base: https://github.com/zmkfirmware
-    - name: badjeff
-      url-base: https://github.com/badjeff
+  version: 0.1
   projects:
-    # - name: zmk
-    #   remote: zmkfirmware
-    #   revision: main
-    #   import: app/west.yml
-    - name: zmk
-      remote: badjeff
-      revision: feat/pointers-move-scroll
-      import: app/west.yml
-    - name: zmk-analog-input-driver
-      remote: badjeff
+    - name: zmkfirmware
+      path: zmk
+      remote: https://github.com/zmkfirmware/zmk.git
       revision: main
-    - name: zmk-behavior-mouse-key-toggle
-      remote: badjeff
+    - name: zephyr
+      path: zephyr
+      remote: https://github.com/zephyrproject-rtos/zephyr.git
       revision: main
-    - name: zmk-input-behavior-listener
-      remote: badjeff
-      revision: main
-    - name: zmk-output-behavior-listener
-      remote: badjeff
-      revision: main
-    - name: zmk-drv2605-driver
-      remote: badjeff
-      revision: main
-    - name: zmk-split-peripheral-input-relay
-      remote: badjeff
-      revision: main
-    - name: zmk-split-peripheral-output-relay
-      remote: badjeff
-      revision: main
-    - name: zmk-split-peripheral-bonding-tweak
-      remote: badjeff
-      revision: main
-    - name: cirque-input-module
-      remote: badjeff
-      revision: main
+    - name: libusb
+      path: libusb
+      remote: https://github.com/libusb/libusb.git
+      revision: master
   self:
-    path: config
+    path: west
