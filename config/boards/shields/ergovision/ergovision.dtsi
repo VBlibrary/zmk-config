@@ -61,7 +61,24 @@
         status = "disabled"; // Enabled on the central side
         device = <&glidepoint_split>;
     };
+    
+&pinctrl {
+    /* configuration for i2c0 device, default state */
+    i2c0_default: i2c0_default {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 7)>,
+                <NRF_PSEL(TWIM_SCL, 0, 27)>;
+        };
+    };
 
+    i2c0_sleep: i2c0_sleep {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 0, 7)>,
+                <NRF_PSEL(TWIM_SCL, 0, 27)>;
+            low-power-enable;
+        };
+    };
+};
     &i2c0 {
         status = "okay"; // Enable I2C1 for the Nice Nano V2
         sda-pin = <2>;    // Specify the SDA pin for I2C1
