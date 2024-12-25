@@ -14,7 +14,7 @@
 
         glidepoint: glidepoint@1 {
             compatible = "cirque,pinnacle";
-            reg = <2>;
+            reg = <1>;
             status = "okay";
             sensitivity = "4x"; // Set sensitivity
             no-taps;            // Disable tap gestures
@@ -23,7 +23,7 @@
     };
 
     &glidepoint_split {
-        device = <&glidepoint>; // Assign the right-hand GlidePoint trackpad to split
+        device = <&right_glidepoint_split>; // Assign the right-hand GlidePoint trackpad to split
     };
 
     &mmv { // Motion processing for trackpad
