@@ -44,62 +44,37 @@
                                     RC(4,2) RC(4,1) RC(4,0)                RC(4,6) RC(4,7) RC(4,8)
         >;
     };
+ };
 
-    // Split configuration for pointing devices
+    &i2c1 {
+        status = "okay";
+        sda-pin = <2>;  // Pin connected to SDA
+        scl-pin = <3>;  // Pin connected to SCL
+
+        left_glidepoint: glidepoint@1 {
+            compatible = "cirque,pinnacle";
+            reg = <0x2C>;  // I2C address for the left trackpad
+            status = "okay";
+        };
+
+        right_glidepoint: glidepoint@2 {
+            compatible = "cirque,pinnacle";
+            reg = <0x2D>;  // I2C address for the right trackpad
+            status = "okay";
+        };
+    };
+
     split_inputs {
         #address-cells = <1>;
         #size-cells = <0>;
 
-        glidepoint_split: glidepoint_split@0 {
+        left_glidepoint_split: glidepoint_split@1 {
             compatible = "zmk,input-split";
-            reg = <0>;
+            reg = <1>;
+        };
+
+        right_glidepoint_split: glidepoint_split@2 {
+            compatible = "zmk,input-split";
+            reg = <2>;
         };
     };
-
-    glidepoint_listener: glidepoint_listener {
-        compatible = "zmk,input-listener";
-        status = "disabled"; // Enabled on the central side
-        device = <&glidepoint_split>;
-    };
-    
-&pinctrl {
-    /* configuration for i2c0 device, default state */
-    i2c0_default: i2c0_default {
-        group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 7)>,
-                <NRF_PSEL(TWIM_SCL, 0, 27)>;
-        };
-    };
-
-    i2c0_sleep: i2c0_sleep {
-        group1 {
-            psels = <NRF_PSEL(TWIM_SDA, 0, 7)>,
-                <NRF_PSEL(TWIM_SCL, 0, 27)>;
-            low-power-enable;
-        };
-    };
-};
-    &i2c0 {
-        status = "okay"; // Enable I2C1 for the Nice Nano V2
-        sda-pin = <2>;    // Specify the SDA pin for I2C1
-        scl-pin = <3>;    // Specify the SCL pin for I2C1
-
-        glidepoint: glidepoint@0 {
-            compatible = "cirque,pinnacle";  // Trackpad device type
-            reg = <0>;                      // I2C address of the trackpad
-            status = "okay";
-            sensitivity = <4>;               // Adjust sensitivity
-            no-taps;                         // Disable tap gestures
-            sleep;                           // Enable sleep mode for power-saving
-        };
-    };
-
-    // Input processing for the trackpad
-    &mmv {
-        x-input-code = <INPUT_REL_X>;  // X-axis movement
-        y-input-code = <INPUT_REL_Y>;  // Y-axis movement
-        time-to-max-speed-ms = <300>;   // Time to reach max speed
-        acceleration-exponent = <1>;    // Acceleration curve
-    };
-};
-    
