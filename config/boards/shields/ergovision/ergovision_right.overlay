@@ -27,11 +27,4 @@
         device = <&right_glidepoint_split>; // Assign the right-hand GlidePoint trackpad to split
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
     };
-
-    &mmv { // Motion processing for trackpad
-        x-input-code = <INPUT_REL_X>; // X-axis movement
-        y-input-code = <INPUT_REL_Y>; // Y-axis movement
-        time-to-max-speed-ms = <300>; // Time to reach max speed
-        acceleration-exponent = <1>;  // Acceleration curve
-    };
 };
