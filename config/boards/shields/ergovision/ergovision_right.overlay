@@ -3,8 +3,7 @@
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <input/processors.dtsi>
-/{
-    default_transform {
+ default_transform {
         col-offset = <6>; // Offset for the right-hand side columns
     };
 
@@ -27,4 +26,4 @@
         device = <&right_glidepoint_split>; // Assign the right-hand GlidePoint trackpad to split
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
     };
-};
+
