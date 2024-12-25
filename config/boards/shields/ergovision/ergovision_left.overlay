@@ -3,23 +3,22 @@
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <input/processors.dtsi>
-/{
-    &pro_micro_i2c {
-        status = "okay"; // Enable I2C1 for the Nice Nano V2
-        sda-pin = <2>;   // Specify the SDA pin for I2C1
-        scl-pin = <3>;   // Specify the SCL pin for I2C1
+&pro_micro_i2c {
+    status = "okay"; // Enable I2C1 for the Nice Nano V2
+    sda-pin = <2>;   // Specify the SDA pin for I2C1
+    scl-pin = <3>;   // Specify the SCL pin for I2C1
 
-        glidepoint: glidepoint@0 {
-            compatible = "cirque,pinnacle";
-            reg = <0>;
-            status = "okay";
-            sensitivity = "4x"; // Set sensitivity
-            no-taps;            // Disable tap gestures
-            sleep;              // Enable sleep mode for power saving
-        };
-    };
+     glidepoint: glidepoint@0 {
+         compatible = "cirque,pinnacle";
+         reg = <0>;
+         status = "okay";
+         sensitivity = "4x"; // Set sensitivity
+         no-taps;            // Disable tap gestures
+         sleep;              // Enable sleep mode for power saving
+     };
+};
 
-    &glidepoint_split {
+&glidepoint_split {
         device = <&glidepoint_split>; // Assign the left-hand GlidePoint trackpad to split
         input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
     };
@@ -27,11 +26,9 @@
     &glidepoint_listener {
         status = "okay"; // Enable the input listener for the central role
     };
-
-    &mmv { // Motion processing for trackpad
+&mmv { // Motion processing for trackpad
         x-input-code = <INPUT_REL_X>; // X-axis movement
         y-input-code = <INPUT_REL_Y>; // Y-axis movement
         time-to-max-speed-ms = <300>; // Time to reach max speed
         acceleration-exponent = <1>;  // Acceleration curve
     };
-};
