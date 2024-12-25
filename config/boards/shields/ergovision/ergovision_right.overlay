@@ -22,8 +22,8 @@
 };
 
 &right_glidepoint_split {
-    device = <&glidepoint_split>; // Assign the right-hand GlidePoint trackpad to split
-    input-processors = <&zip_xy_scaler 2 1>;
+        device = <&right_glidepoint_split>; // Assign the right-hand GlidePoint trackpad to split
+        input-processors = <&zip_xy_scaler 2 1>;
    };
 
     &right_glidepoint_listener {
