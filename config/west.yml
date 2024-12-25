@@ -9,3 +9,10 @@ manifest:
       import: app/west.yml
   self:
     path: config
+
+build:
+  # Ensure a clean build is forced
+  clean: true
+  config:
+    # Add any other build options here
+    debug: true
