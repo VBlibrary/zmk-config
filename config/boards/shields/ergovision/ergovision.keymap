@@ -28,7 +28,7 @@
                 &kp LSHIFT   &kp A      &kp S      &kp D      &kp F      &kp G               &kp H      &kp J      &kp K      &kp L      &kp SEMI   &kp RSHIFT
                 &kp LCTRL    &kp Z      &kp X      &kp C      &kp V      &kp B               &kp N      &kp M      &kp COMMA  &kp DOT    &kp SLASH  &kp RCTRL
                                                    &kp TAB    &kp BSPC   &kp SPACE           &kp SPACE  &kp ENTER  &tog 2
-                                                   &sensor_mouse
+                                                                         &sensor_mouse       &sensor_mouse
             >;
         };
         nav {

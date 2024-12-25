@@ -4,12 +4,12 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <input/processors.dtsi>
 /{
-    &i2c0 {
+    &pro_micro_i2c {
         status = "okay"; // Enable I2C1 for the Nice Nano V2
         sda-pin = <2>;   // Specify the SDA pin for I2C1
         scl-pin = <3>;   // Specify the SCL pin for I2C1
 
-        glidepoint: glidepoint@0 {
+        glidepoint_split: glidepoint@0 {
             compatible = "cirque,pinnacle";
             reg = <0>;
             status = "okay";
@@ -20,7 +20,7 @@
     };
 
     &glidepoint_split {
-        device = <&left_glidepoint_split>; // Assign the left-hand GlidePoint trackpad to split
+        device = <glidepoint_split>; // Assign the left-hand GlidePoint trackpad to split
     };
 
     &glidepoint_listener {
