@@ -79,7 +79,7 @@
 
         right_glidepoint_listener: right_glidepoint_listener {
         compatible = "zmk,input-listener";
-        status = "enabled";
+        status = "okay";
         device = <&right_glidepoint_split>;
         };
     };
