@@ -3,7 +3,7 @@
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <dt-bindings/zmk/pointing.h>
 /{
-    &pro_micro_i2c {
+    &i2c0 {
         status = "okay"; // Enable I2C1 for the Nice Nano V2
         sda-pin = <2>;   // Specify the SDA pin for I2C1
         scl-pin = <3>;   // Specify the SCL pin for I2C1
