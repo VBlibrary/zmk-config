@@ -9,21 +9,18 @@
 
 &pro_micro_i2c {
     status = "okay"; // Enable I2C1 for the Nice Nano V2
-    //sda-pin = <2>;   // Specify the SDA pin for I2C1
-    //scl-pin = <3>;   // Specify the SCL pin for I2C1
+      glidepoint: glidepoint@0 {
+         compatible = "cirque,pinnacle";
+         reg = <1>;
+         status = "okay";
+         sensitivity = "4x"; // Set sensitivity
+         no-taps;            // Disable tap gestures
+         sleep;              // Enable sleep mode for power saving
+     };
+};
 
-    glidepoint: glidepoint@1 {
-        compatible = "cirque,pinnacle";
-        reg = <1>;
-        status = "okay";
-        sensitivity = "4x"; // Set sensitivity
-        no-taps;            // Disable tap gestures
-        sleep;              // Enable sleep mode for power saving
-        };
-    };
-
-    &glidepoint_split {
-        device = <&right_glidepoint_split>; // Assign the right-hand GlidePoint trackpad to split
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
-    };
+&glidepoint_split {
+    device = <&right_glidepoint_split>; // Assign the right-hand GlidePoint trackpad to split
+    input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>;
+};
 
