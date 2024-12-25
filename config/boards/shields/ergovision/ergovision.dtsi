@@ -1,7 +1,6 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 #include <dt-bindings/zmk/input_transform.h>
 #include <dt-bindings/zmk/pointing.h>
-#include "nice_nano_v2.dtsi"
 
 / {
     chosen {
