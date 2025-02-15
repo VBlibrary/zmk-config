@@ -17,7 +17,7 @@
         default_layer {
             bindings = <
                 &kp TAB        &kp N1     &kp N2     &kp N3     &kp N4     &kp N5    
-                &kp SPACE      &kp Q      &kp Q      &kp N6      &kp E      &kp R      
+                &kp SPACE      &kp Q      &kp Q      &kp N6      &kp E      &kp N7      
                 &kp LEFT_ALT   &kp F      &kp A      &kp w      &kp D      &kp LEFT_SHIFT     
                                           &kp C      &kp S      &kp X          
             
