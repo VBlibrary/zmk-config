@@ -6,5 +6,7 @@ if SHIELD_GAMEPAD
 config ZMK_KEYBOARD_NAME
     default "Gamepad"
 
+config ZMK_USB
+	default y
 endif
 
